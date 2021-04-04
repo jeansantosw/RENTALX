@@ -36,12 +36,19 @@ class ImportCategoriesUseCase{
             reject(err);
         })
         });
-
     }
 
     async execute(file: Express.Multer.File): Promise<void>{
         const categories = await this.loadCategories(file);
-        console.log(categories);
+        categories.map(async (category)=>{
+            const { name, description } = category;
+
+            const existCategory = this.categoriesRepositiry.findByName(name);
+
+            if (!existCategory) {
+                this.categoriesRepositiry.create({name, description})
+            }
+        })
     }
 }
 export { ImportCategoriesUseCase };
