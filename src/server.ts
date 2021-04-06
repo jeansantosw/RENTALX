@@ -10,7 +10,8 @@ app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-app.use(router);
+app.use(router); // router é resaponsavel por controlar as roatas da aplicação.
+
 app.listen(3333, ()=>{
     console.log("Back-and Started!")
 });

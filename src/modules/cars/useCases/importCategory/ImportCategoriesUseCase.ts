@@ -9,7 +9,6 @@ interface IImportCategory{
 }
 class ImportCategoriesUseCase{
     constructor(private categoriesRepositiry: ICategoriesRepository){
-
     }
 
 
